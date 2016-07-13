@@ -1,0 +1,37 @@
+<ion-view view-title="Latest" hide-nav-bar="false">
+    <ion-nav-bar class="bar-assertive">
+<!--        <ion-nav-back-button></ion-nav-back-button>-->
+      <ion-nav-buttons side="left">
+		<button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+		</button>
+	  </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-content>
+        <!--<ion-list>-->
+
+        <!--</ion-list>-->
+
+        <div ng-repeat="post in posts" class="item card-item">
+            <div ui-sref="app.post({id:post.id})" class="card stable-bg ink">
+                <div class="item  item-text-wrap">
+                    <!--<span class="avatar" style="background-image: url('img/sansa.jpg');"></span>-->
+                    <strong>{{post.title | removeHtml}}</strong>
+                    <a class="image"><img src="{{post.thumbnail_images.medium.url}}">
+                    </a>
+                    <p>{{post.excerpt | removeHtml}}</p>
+                    <div class="card-footer text-right">
+                        <!--                        <i class="icon ion-chatbubble positive"></i> 2
+                                                <i class="icon ion-heart assertive"></i> 4-->
+                        <div class="pull-left">
+                            <i class="icon ion-android-time"></i> {{post.date}}
+                        </div>
+<!--                        <div class="pull-left block">
+                            <span class="tagbg ink-dark" ng-repeat="tag in post.tags">{{tag.title + " "}}</span>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

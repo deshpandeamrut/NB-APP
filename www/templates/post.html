@@ -1,0 +1,41 @@
+<ion-view view-title="Post" ng-cloak hide-nav-bar="false"> 
+    <ion-nav-bar class="bar-assertive">
+        <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
+    <div class="bar bar-subheader">
+        <h4 class="title">{{postData.title_plain}}</h4>
+    </div>
+    <ion-content has-subheader="true">
+        <p> {{postData.date}}</p>
+        <div style="text-align: justify;padding:0px 2%" ng-bind-html="postData.content"></div>
+    </ion-content>
+    <div class="bar bar-footer bar-calm">
+        <div class="bar bar-footer bar-calm">
+            <h5 ng-click="showAlert()" class="title">Have something to say?</h5>
+        </div>
+    </div>
+</ion-view>
+
+
+<script id="contact-modal.html" type="text/ng-template">
+  <div class="modal">
+    <ion-header-bar>
+      <h1 class="title">Edit Contact</h1>
+    </ion-header-bar>
+    <ion-content>
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Name</span>
+          <input type="text" ng-model="contact.name">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Info</span>
+          <input type="text" ng-model="contact.info">
+        </label>
+      </div>
+
+      <button class="button button-full button-energized" ng-click="closeModal()">Done</button>
+    </ion-content>
+  </div>
+</script>
+

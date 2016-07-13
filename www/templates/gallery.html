@@ -1,0 +1,22 @@
+<ion-view view-title="Gallery" hide-nav-bar="false">
+    <ion-nav-bar class="bar-assertive">
+        <!--        <ion-nav-back-button></ion-nav-back-button>-->
+        <ion-nav-buttons side="left">
+            <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+        
+        <div ng-repeat="photo in photos" class="item card-item">
+            <div  class="card stable-bg ink ink-dark">
+                <div class="item  item-text-wrap">
+                    <h3> {{photo.name}}</h3>
+                    <img ng-click="showImages($index)" src="{{'https://graph.facebook.com/' + photo.id + '/picture'}}">
+                    <div class="card-footer text-right">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

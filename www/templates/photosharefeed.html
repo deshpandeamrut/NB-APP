@@ -1,0 +1,31 @@
+<ion-view view-title="PhotoShare Feed" hide-nav-bar="false">
+    <ion-nav-bar class="bar-assertive">
+        <!--        <ion-nav-back-button></ion-nav-back-button>-->
+        <ion-nav-buttons side="left">
+            <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+<!--        <ion-refresher
+    pulling-text="Pull to refresh"
+    on-refresh="doRefresh()">
+  </ion-refresher>-->
+        <div ng-repeat="photo in photos" class="item card-item">
+            <div  class="card stable-bg ink ink-dark">
+                <div class="item  item-text-wrap">
+                    <h3> {{photo.caption}}</h3>
+                    <img ng-click="showImages($index)" src="{{'http://nammabagalkot.in/nbapp/compressed/' + photo.url}}">
+
+                    <div class="card-footer text-right">
+                        <div class="pull-left">
+                           {{photo.username}}
+                        </div>
+                        {{photo.time+" "}}<i class="icon ion-android-time"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ion-infinite-scroll immediate-check="false" on-infinite="loadMore()" ng-if="page.showMore" distance="1%">
+    </ion-content>
+</ion-view>

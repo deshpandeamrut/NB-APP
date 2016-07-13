@@ -1,0 +1,43 @@
+<ion-view view-title="PhotoShare" hide-nav-bar="false">
+    <ion-nav-bar class="bar-assertive">
+        
+        <ion-nav-buttons side="left">
+            <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <div class="bar bar-subheader" ng-show="showImage">
+        <h4 class="title">Photo Preview</h4>
+    </div>
+
+    <ion-content>
+        <div class="verticalFlex" ng-show="!showImage">
+            <div class="bgImage"></div>
+            <h4 class="light" >Share photos with Bagalkot</h4>
+            <button ng-click="showActionSheet()" class="button button-positive ink">Start Sharing
+            <i class="icon ion-android-share"></i>
+            </button>
+            
+        </div>
+        <div class="imagePreview" ng-show="showImage">
+            <img  ng-src="{{imageUri}}">
+        </div>
+        <div class="list" ng-show="showImage">
+
+            <label class="item item-input item-floating-label">
+                <span  class="input-label">Caption</span>
+                <input ng-model="inputdata.caption" type="text" placeholder="Caption">
+            </label>
+            <div class="row">
+                <div class="col text-center">
+                    <button class="button button-positive" ng-click="uploadImage()">
+                        Upload
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </ion-content>
+    
+</ion-view>
